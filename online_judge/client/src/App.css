@@ -1,0 +1,117 @@
+:root {
+  --primary-color: #ff6f00;     /* Bright orange */
+  --hover-color: #ff9100;       /* Lighter orange for hover */
+  --bg-color: #121212;          /* Deep black */
+  --card-bg: #1e1e1e;           /* Slightly lighter black */
+  --text-color: #ffffff;        /* White text */
+  --border-color: #333333;      /* Border grey */
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Links */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--hover-color);
+  text-decoration: underline;
+}
+
+/* Logo */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #ff6f00aa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* Card Style */
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 2em;
+  margin: 1em 0;
+  box-shadow: 0 4px 8px rgba(255, 111, 0, 0.1);
+}
+
+/* Buttons */
+button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  margin-top: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--hover-color);
+}
+
+/* Inputs and Textareas */
+input, textarea, select {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  padding: 0.5rem;
+  border-radius: 4px;
+  width: 100%;
+  margin: 0.5rem 0 1rem;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: 2px solid var(--primary-color);
+}
+
+/* Utility */
+.read-the-docs {
+  color: #bbb;
+}
+
+.main-container {
+  padding: 1rem 2rem;
+}
+
+/* Responsive (optional tweak) */
+@media screen and (max-width: 768px) {
+  .main-container {
+    padding: 1rem;
+  }
+}

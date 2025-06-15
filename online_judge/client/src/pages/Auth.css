@@ -1,0 +1,25 @@
+/* src/pages/Auth.css */
+.auth-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-container input {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  background: #222;
+  color: white;
+  border: 1px solid #444;
+}
+
+.auth-container button {
+  background: var(--primary-color);
+  border: none;
+  padding: 0.5rem 1rem;
+  color: white;
+  cursor: pointer;
+}

@@ -1,0 +1,23 @@
+.navbar {
+  background-color: var(--card-bg);
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar a {
+  color: var(--text-color);
+  margin: 0 1rem;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: var(--hover-color);
+}
+
+.navbar a.active {
+  color: orange;
+  border-bottom: 2px solid orange;
+}
