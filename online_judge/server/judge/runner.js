@@ -1,3 +1,4 @@
+// runner.js
 import { exec } from 'child_process';
 import fs from 'fs';
 import path from 'path';
@@ -7,12 +8,10 @@ import { dirname } from 'path';
 import { promisify } from 'util';
 
 const execPromise = promisify(exec);
-
-// ⬇️ For __dirname replacement in ESM
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const runCode = (language, code) => {
+export async function runCode(language, code, input = '') {
   return new Promise(async (resolve, reject) => {
     const jobId = uuid();
     const jobDir = path.join(__dirname, '..', 'temp', jobId);
@@ -48,27 +47,24 @@ const runCode = (language, code) => {
         return reject('Unsupported language');
     }
 
-    const filepath = path.join(jobDir, filename);
-    fs.writeFileSync(filepath, code);
+    // Write code and input to file
+    fs.writeFileSync(path.join(jobDir, filename), code);
+    fs.writeFileSync(path.join(jobDir, 'input.txt'), input);
 
+    // Run Docker
     let dockerCmd = `docker run --rm -v "${jobDir}:/code" -w /code ${image} sh -c "`;
     if (compileCmd) dockerCmd += `${compileCmd} && `;
-    dockerCmd += `${runCmd}"`;
+    dockerCmd += `${runCmd} < input.txt"`;
 
     try {
       const { stdout, stderr } = await execPromise(dockerCmd, { timeout: 10000 });
       fs.rmSync(jobDir, { recursive: true, force: true });
 
-      if (stderr) {
-        return reject(stderr);
-      }
-
-      resolve(stdout);
+      if (stderr) return reject(stderr);
+      resolve(stdout.trim());
     } catch (err) {
       fs.rmSync(jobDir, { recursive: true, force: true });
       reject(err.stderr || err.message || 'Execution error');
     }
   });
-};
-
-export default runCode;
+}

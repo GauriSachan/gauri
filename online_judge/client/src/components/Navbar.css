@@ -1,23 +1,51 @@
 .navbar {
-  background-color: var(--card-bg);
-  padding: 1rem 2rem;
-  border-bottom: 1px solid var(--border-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #1e1e1e;
+  padding: 1rem 2rem;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .navbar a {
-  color: var(--text-color);
+  color: white;
+  text-decoration: none;
   margin: 0 1rem;
-  transition: color 0.3s ease;
 }
 
-.navbar a:hover {
-  color: var(--hover-color);
+.navbar .active {
+  color: #ff6600;
+  font-weight: bold;
 }
 
-.navbar a.active {
-  color: orange;
-  border-bottom: 2px solid orange;
+.profile-icon {
+  background: purple;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 32px;
+  cursor: pointer;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 60px;
+  right: 2rem;
+  background: #333;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  z-index: 10;
+}
+
+.profile-dropdown button {
+  background: #ff6600;
+  color: white;
+  border: none;
+  padding: 0.3rem 1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
 }

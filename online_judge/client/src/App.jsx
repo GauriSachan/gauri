@@ -10,6 +10,9 @@ import './App.css';
 // Toast imports
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import SubmissionHistory from './pages/SubmissionHistory';
+
+<Route path="/submissions" element={<SubmissionHistory />} />
 
 function App() {
   return (

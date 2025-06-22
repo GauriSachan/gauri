@@ -1,0 +1,42 @@
+.submission-page-container {
+  padding: 2rem;
+  max-width: 900px;
+  margin: auto;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.submissions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.submission-card {
+  background: #1f1f1f;
+  color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #00000055;
+  border-left: 5px solid #ffa500;
+}
+
+.submission-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.submission-details p {
+  margin: 0.25rem 0;
+}
+
+.submitted-code {
+  background: #2d2d2d;
+  padding: 0.75rem;
+  border-radius: 5px;
+  overflow-x: auto;
+  font-family: monospace;
+  font-size: 0.9rem;
+  margin-top: 0.75rem;
+}
